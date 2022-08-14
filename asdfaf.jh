@@ -1,0 +1,225 @@
+
+
+entity Person{
+  name String
+  dateOfBirth Instant
+  dateOfDeath Instant
+  gender Gender
+}
+
+enum Gender {
+    MALE, FEMALE, OTHER
+}
+
+entity PersonAnnex {
+  person Person
+  nid Long
+  legacyNid Long
+  passportNumber String
+  birthCertificateNumber String
+  drivingLicenceNumber String
+  tinCertificateNumber String
+  facebookId String
+  twitterId String
+  linkedinId String
+  githubId String
+  tiktokId String
+  instragramId String
+  whatsappNumber String
+  pinterestId String
+  telegramId String
+  rokomariId Long
+  rokomariJoinDate Instant
+  techshopId Long
+  techshopJoinDate Instant
+  udvashId String
+  udvashJoinDate Instant
+  prohoriId String
+  prohoriJoinDate Instant
+}
+
+entity PersonPhoto {
+  person Person
+  name String
+}
+
+entity ContactInfo {
+  person Person
+  contactType ContactType
+  contactValue String
+}
+
+enum ContactType {
+    EMAIL, PHONE
+}
+
+entity Address {
+  latitude Float
+  longitude Float
+  address String
+  zoneId Long
+}
+
+entity Organization {
+  name String
+  type OrganizationType
+  address Address
+  email String
+  phone Long
+}
+
+// TODO: Define types
+enum OrganizationType {
+	EDUCATION, SOFTWARE
+}
+
+entity Profession {
+  person Person
+  organization Organization
+  professionName ProfessionName
+  designation String
+  professionDetail String
+  estimatedMonthlyEarning Long
+  startDate Instant
+  endDate Instant
+  updatedAt Instant
+}
+
+enum ProfessionName {
+	STUDENT
+}
+
+entity Qualification{
+	persion Person
+    organization Organization
+    title QualificationTitle
+    cgpa String
+    detail String
+    startDate Instant
+    endDate Instant
+    updatedAt Instant
+}
+
+enum QualificationTitle {
+	SSC, HSC
+}
+
+entity Hobby {
+  person Person
+  name HobbyName
+}
+
+enum HobbyName {
+	READING
+}
+
+entity Order {
+  person Person
+  orderId String
+  orderSource OrderSource
+  amount Long
+  address Address
+  paymentMethod PaymentMethod
+  shippingMethod ShippingMethod
+  shippingCharge Long
+}
+
+enum OrderSource {
+	ROKOMARI
+}
+
+enum PaymentMethod {
+	CASH, CARD
+}
+
+enum ShippingMethod {
+	SAMPLE
+}
+
+entity OrderProduct {
+  order Order
+  product Product
+}
+
+entity Product {
+  sourceId Long
+  sourceType ProductSourceType
+  name String
+  listPrice Long
+  sellPrice Long
+}
+
+enum ProductSourceType {
+	ROKOMARI
+}
+
+entity Tag {
+  sourceId Long
+  sourceType ProductSourceType
+  type TagType
+  name String
+}
+
+enum TagType {
+	BOOK
+}
+
+entity ProductTag {
+  product Product
+  tag Tag
+}
+
+entity Property {
+  name String //iphone, macbook, private car
+  modelNumber String //10, 10X, allion2006, 
+  brand String // apple, toyota, xiaomi
+  estimatedPrice Long
+  type PropertyType
+}
+
+enum PropertyType {
+	PHONE, CAR, HOUSE, FLAT, LAND
+}
+
+entity PersonProperty{
+  property Property
+  person Person
+  buyingDate Instant
+  buyingPrice Long
+  sellingDate Instant
+  sellingPrice Long
+}
+
+relationship OneToMany {
+	Person to PersonAnnex{person},
+    Person to PersonPhoto{person},
+    Person to ContactInfo{person},
+    Person to Profession{person},
+    Person to Qualification{person},
+    Person to Hobby{person},
+    Person to Order{person},
+
+}
+
+relationship OneToOne {
+	// Address
+	Organization{address} to Address,
+    Organization{address} to Address,
+    Order{address} to Address,
+    
+    //Organization
+    Organization{profession} to Profession,
+    Organization{qualification} to Qualification,
+    
+    //Order
+    OrderProduct{order} to Order
+    
+    // ProductTag
+    ProductTag{product} to Product
+    ProductTag{tag} to Tag
+    
+    // PersonProperty
+    ProductTag{property} to Property
+    ProductTag{person} to Person
+    
+}
