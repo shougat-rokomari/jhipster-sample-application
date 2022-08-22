@@ -1,0 +1,324 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-person-annex-heading"
+        data-cy="PersonAnnexCreateUpdateHeading"
+        jhiTranslate="jhipsterSampleApplicationApp.personAnnex.home.createOrEditLabel"
+      >
+        Create or edit a Person Annex
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="jhipsterSampleApplicationApp.personAnnex.nid" for="field_nid">Nid</label>
+          <input type="number" class="form-control" name="nid" id="field_nid" data-cy="nid" formControlName="nid" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="jhipsterSampleApplicationApp.personAnnex.legacyNid" for="field_legacyNid"
+            >Legacy Nid</label
+          >
+          <input type="number" class="form-control" name="legacyNid" id="field_legacyNid" data-cy="legacyNid" formControlName="legacyNid" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="jhipsterSampleApplicationApp.personAnnex.passportNumber" for="field_passportNumber"
+            >Passport Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="passportNumber"
+            id="field_passportNumber"
+            data-cy="passportNumber"
+            formControlName="passportNumber"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="jhipsterSampleApplicationApp.personAnnex.birthCertificateNumber"
+            for="field_birthCertificateNumber"
+            >Birth Certificate Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="birthCertificateNumber"
+            id="field_birthCertificateNumber"
+            data-cy="birthCertificateNumber"
+            formControlName="birthCertificateNumber"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="jhipsterSampleApplicationApp.personAnnex.drivingLicenceNumber"
+            for="field_drivingLicenceNumber"
+            >Driving Licence Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="drivingLicenceNumber"
+            id="field_drivingLicenceNumber"
+            data-cy="drivingLicenceNumber"
+            formControlName="drivingLicenceNumber"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="jhipsterSampleApplicationApp.personAnnex.tinCertificateNumber"
+            for="field_tinCertificateNumber"
+            >Tin Certificate Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tinCertificateNumber"
+            id="field_tinCertificateNumber"
+            data-cy="tinCertificateNumber"
+            formControlName="tinCertificateNumber"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="jhipsterSampleApplicationApp.personAnnex.facebookId" for="field_facebookId"
+            >Facebook Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="facebookId"
+            id="field_facebookId"
+            data-cy="facebookId"
+            formControlName="facebookId"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="jhipsterSampleApplicationApp.personAnnex.twitterId" for="field_twitterId"
+            >Twitter Id</label
+          >
+          <input type="text" class="form-control" name="twitterId" id="field_twitterId" data-cy="twitterId" formControlName="twitterId" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="jhipsterSampleApplicationApp.personAnnex.linkedinId" for="field_linkedinId"
+            >Linkedin Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="linkedinId"
+            id="field_linkedinId"
+            data-cy="linkedinId"
+            formControlName="linkedinId"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="jhipsterSampleApplicationApp.personAnnex.githubId" for="field_githubId">Github Id</label>
+          <input type="text" class="form-control" name="githubId" id="field_githubId" data-cy="githubId" formControlName="githubId" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="jhipsterSampleApplicationApp.personAnnex.tiktokId" for="field_tiktokId">Tiktok Id</label>
+          <input type="text" class="form-control" name="tiktokId" id="field_tiktokId" data-cy="tiktokId" formControlName="tiktokId" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="jhipsterSampleApplicationApp.personAnnex.instragramId" for="field_instragramId"
+            >Instragram Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="instragramId"
+            id="field_instragramId"
+            data-cy="instragramId"
+            formControlName="instragramId"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="jhipsterSampleApplicationApp.personAnnex.whatsappNumber" for="field_whatsappNumber"
+            >Whatsapp Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="whatsappNumber"
+            id="field_whatsappNumber"
+            data-cy="whatsappNumber"
+            formControlName="whatsappNumber"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="jhipsterSampleApplicationApp.personAnnex.pinterestId" for="field_pinterestId"
+            >Pinterest Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="pinterestId"
+            id="field_pinterestId"
+            data-cy="pinterestId"
+            formControlName="pinterestId"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="jhipsterSampleApplicationApp.personAnnex.telegramId" for="field_telegramId"
+            >Telegram Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="telegramId"
+            id="field_telegramId"
+            data-cy="telegramId"
+            formControlName="telegramId"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="jhipsterSampleApplicationApp.personAnnex.rokomariId" for="field_rokomariId"
+            >Rokomari Id</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="rokomariId"
+            id="field_rokomariId"
+            data-cy="rokomariId"
+            formControlName="rokomariId"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="jhipsterSampleApplicationApp.personAnnex.rokomariJoinDate" for="field_rokomariJoinDate"
+            >Rokomari Join Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_rokomariJoinDate"
+              data-cy="rokomariJoinDate"
+              type="datetime-local"
+              class="form-control"
+              name="rokomariJoinDate"
+              formControlName="rokomariJoinDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="jhipsterSampleApplicationApp.personAnnex.techshopId" for="field_techshopId"
+            >Techshop Id</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="techshopId"
+            id="field_techshopId"
+            data-cy="techshopId"
+            formControlName="techshopId"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="jhipsterSampleApplicationApp.personAnnex.techshopJoinDate" for="field_techshopJoinDate"
+            >Techshop Join Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_techshopJoinDate"
+              data-cy="techshopJoinDate"
+              type="datetime-local"
+              class="form-control"
+              name="techshopJoinDate"
+              formControlName="techshopJoinDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="jhipsterSampleApplicationApp.personAnnex.udvashId" for="field_udvashId">Udvash Id</label>
+          <input type="text" class="form-control" name="udvashId" id="field_udvashId" data-cy="udvashId" formControlName="udvashId" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="jhipsterSampleApplicationApp.personAnnex.udvashJoinDate" for="field_udvashJoinDate"
+            >Udvash Join Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_udvashJoinDate"
+              data-cy="udvashJoinDate"
+              type="datetime-local"
+              class="form-control"
+              name="udvashJoinDate"
+              formControlName="udvashJoinDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="jhipsterSampleApplicationApp.personAnnex.prohoriId" for="field_prohoriId"
+            >Prohori Id</label
+          >
+          <input type="text" class="form-control" name="prohoriId" id="field_prohoriId" data-cy="prohoriId" formControlName="prohoriId" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="jhipsterSampleApplicationApp.personAnnex.prohoriJoinDate" for="field_prohoriJoinDate"
+            >Prohori Join Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_prohoriJoinDate"
+              data-cy="prohoriJoinDate"
+              type="datetime-local"
+              class="form-control"
+              name="prohoriJoinDate"
+              formControlName="prohoriJoinDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

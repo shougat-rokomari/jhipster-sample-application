@@ -1,0 +1,47 @@
+{
+  "applications": "*",
+  "changelogDate": "20220822083658",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "person",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateOfBirth",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "dateOfDeath",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "gender",
+      "fieldType": "Gender",
+      "fieldValues": "MALE,FEMALE,OTHER"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Person",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "personAnnex",
+      "otherEntityRelationshipName": "person",
+      "ownerSide": true,
+      "relationshipName": "personAnnex",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "contactInfo",
+      "otherEntityRelationshipName": "person",
+      "relationshipName": "contactInfos",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

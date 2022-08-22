@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity PersonAnnex.
+    -->
+    <changeSet id="20220822083659-1" author="jhipster">
+        <createTable tableName="person_annex">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="nid" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="legacy_nid" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="passport_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="birth_certificate_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="driving_licence_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="tin_certificate_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="facebook_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="twitter_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="linkedin_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="github_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="tiktok_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="instragram_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="whatsapp_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pinterest_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="telegram_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="rokomari_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="rokomari_join_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="techshop_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="techshop_join_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="udvash_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="udvash_join_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="prohori_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="prohori_join_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="person_annex" columnName="rokomari_join_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="person_annex" columnName="techshop_join_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="person_annex" columnName="udvash_join_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="person_annex" columnName="prohori_join_date" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20220822083659-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/person_annex.csv"
+                  separator=";"
+                  tableName="person_annex"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="nid" type="numeric"/>
+            <column name="legacy_nid" type="numeric"/>
+            <column name="passport_number" type="string"/>
+            <column name="birth_certificate_number" type="string"/>
+            <column name="driving_licence_number" type="string"/>
+            <column name="tin_certificate_number" type="string"/>
+            <column name="facebook_id" type="string"/>
+            <column name="twitter_id" type="string"/>
+            <column name="linkedin_id" type="string"/>
+            <column name="github_id" type="string"/>
+            <column name="tiktok_id" type="string"/>
+            <column name="instragram_id" type="string"/>
+            <column name="whatsapp_number" type="string"/>
+            <column name="pinterest_id" type="string"/>
+            <column name="telegram_id" type="string"/>
+            <column name="rokomari_id" type="numeric"/>
+            <column name="rokomari_join_date" type="date"/>
+            <column name="techshop_id" type="numeric"/>
+            <column name="techshop_join_date" type="date"/>
+            <column name="udvash_id" type="string"/>
+            <column name="udvash_join_date" type="date"/>
+            <column name="prohori_id" type="string"/>
+            <column name="prohori_join_date" type="date"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

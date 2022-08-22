@@ -1,0 +1,9 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "ContactType": {
+      "null": "",
+      "EMAIL": "EMAIL",
+      "PHONE": "PHONE"
+    }
+  }
+}

@@ -1,0 +1,90 @@
+<div>
+  <h2 id="page-heading" data-cy="PersonHeading">
+    <span jhiTranslate="jhipsterSampleApplicationApp.person.home.title">People</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="jhipsterSampleApplicationApp.person.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-person"
+        [routerLink]="['/person/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="jhipsterSampleApplicationApp.person.home.createLabel"> Create a new Person </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="people?.length === 0">
+    <span jhiTranslate="jhipsterSampleApplicationApp.person.home.notFound">No People found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="people && people.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="name">
+            <span jhiTranslate="jhipsterSampleApplicationApp.person.name">Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dateOfBirth">
+            <span jhiTranslate="jhipsterSampleApplicationApp.person.dateOfBirth">Date Of Birth</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dateOfDeath">
+            <span jhiTranslate="jhipsterSampleApplicationApp.person.dateOfDeath">Date Of Death</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="gender">
+            <span jhiTranslate="jhipsterSampleApplicationApp.person.gender">Gender</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="personAnnex.id">
+            <span jhiTranslate="jhipsterSampleApplicationApp.person.personAnnex">Person Annex</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let person of people; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/person', person.id, 'view']">{{ person.id }}</a>
+          </td>
+          <td>{{ person.name }}</td>
+          <td>{{ person.dateOfBirth | formatMediumDatetime }}</td>
+          <td>{{ person.dateOfDeath | formatMediumDatetime }}</td>
+          <td jhiTranslate="{{ 'jhipsterSampleApplicationApp.Gender.' + person.gender }}">{{ person.gender }}</td>
+          <td>
+            <div *ngIf="person.personAnnex">
+              <a [routerLink]="['/person-annex', person.personAnnex.id, 'view']">{{ person.personAnnex?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/person', person.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/person', person.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(person)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
