@@ -1,0 +1,177 @@
+<div>
+  <h2 id="page-heading" data-cy="PersonAnnexHeading">
+    <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.home.title">Person Annexes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-person-annex"
+        [routerLink]="['/person-annex/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.home.createLabel"> Create a new Person Annex </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="personAnnexes?.length === 0">
+    <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.home.notFound">No Person Annexes found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="personAnnexes && personAnnexes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="nid">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.nid">Nid</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="legacyNid">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.legacyNid">Legacy Nid</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="passportNumber">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.passportNumber">Passport Number</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="birthCertificateNumber">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.birthCertificateNumber">Birth Certificate Number</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="drivingLicenceNumber">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.drivingLicenceNumber">Driving Licence Number</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="tinCertificateNumber">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.tinCertificateNumber">Tin Certificate Number</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="facebookId">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.facebookId">Facebook Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="twitterId">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.twitterId">Twitter Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="linkedinId">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.linkedinId">Linkedin Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="githubId">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.githubId">Github Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="tiktokId">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.tiktokId">Tiktok Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="instragramId">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.instragramId">Instragram Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="whatsappNumber">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.whatsappNumber">Whatsapp Number</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="pinterestId">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.pinterestId">Pinterest Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="telegramId">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.telegramId">Telegram Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="rokomariId">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.rokomariId">Rokomari Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="rokomariJoinDate">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.rokomariJoinDate">Rokomari Join Date</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="techshopId">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.techshopId">Techshop Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="techshopJoinDate">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.techshopJoinDate">Techshop Join Date</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="udvashId">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.udvashId">Udvash Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="udvashJoinDate">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.udvashJoinDate">Udvash Join Date</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="prohoriId">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.prohoriId">Prohori Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="prohoriJoinDate">
+            <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.prohoriJoinDate">Prohori Join Date</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let personAnnex of personAnnexes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/person-annex', personAnnex.id, 'view']">{{ personAnnex.id }}</a>
+          </td>
+          <td>{{ personAnnex.nid }}</td>
+          <td>{{ personAnnex.legacyNid }}</td>
+          <td>{{ personAnnex.passportNumber }}</td>
+          <td>{{ personAnnex.birthCertificateNumber }}</td>
+          <td>{{ personAnnex.drivingLicenceNumber }}</td>
+          <td>{{ personAnnex.tinCertificateNumber }}</td>
+          <td>{{ personAnnex.facebookId }}</td>
+          <td>{{ personAnnex.twitterId }}</td>
+          <td>{{ personAnnex.linkedinId }}</td>
+          <td>{{ personAnnex.githubId }}</td>
+          <td>{{ personAnnex.tiktokId }}</td>
+          <td>{{ personAnnex.instragramId }}</td>
+          <td>{{ personAnnex.whatsappNumber }}</td>
+          <td>{{ personAnnex.pinterestId }}</td>
+          <td>{{ personAnnex.telegramId }}</td>
+          <td>{{ personAnnex.rokomariId }}</td>
+          <td>{{ personAnnex.rokomariJoinDate | formatMediumDatetime }}</td>
+          <td>{{ personAnnex.techshopId }}</td>
+          <td>{{ personAnnex.techshopJoinDate | formatMediumDatetime }}</td>
+          <td>{{ personAnnex.udvashId }}</td>
+          <td>{{ personAnnex.udvashJoinDate | formatMediumDatetime }}</td>
+          <td>{{ personAnnex.prohoriId }}</td>
+          <td>{{ personAnnex.prohoriJoinDate | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/person-annex', personAnnex.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/person-annex', personAnnex.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(personAnnex)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

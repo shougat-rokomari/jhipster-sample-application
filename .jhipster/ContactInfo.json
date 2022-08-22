@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20220822083700",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "contact_info",
+  "fields": [
+    {
+      "fieldName": "contactType",
+      "fieldType": "ContactType",
+      "fieldValues": "EMAIL,PHONE"
+    },
+    {
+      "fieldName": "contactValue",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ContactInfo",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "person",
+      "otherEntityRelationshipName": "contactInfos",
+      "relationshipName": "person",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,116 @@
+{
+  "applications": "*",
+  "changelogDate": "20220822083659",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "person_annex",
+  "fields": [
+    {
+      "fieldName": "nid",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "legacyNid",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "passportNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "birthCertificateNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "drivingLicenceNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tinCertificateNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "facebookId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "twitterId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "linkedinId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "githubId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tiktokId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "instragramId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "whatsappNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pinterestId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telegramId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "rokomariId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "rokomariJoinDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "techshopId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "techshopJoinDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "udvashId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "udvashJoinDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "prohoriId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prohoriJoinDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PersonAnnex",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "person",
+      "otherEntityRelationshipName": "personAnnex",
+      "ownerSide": false,
+      "relationshipName": "person",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

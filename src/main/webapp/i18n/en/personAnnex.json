@@ -1,0 +1,47 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "personAnnex": {
+      "home": {
+        "title": "Person Annexes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Person Annex",
+        "createOrEditLabel": "Create or edit a Person Annex",
+        "notFound": "No Person Annexes found"
+      },
+      "created": "A new Person Annex is created with identifier {{ param }}",
+      "updated": "A Person Annex is updated with identifier {{ param }}",
+      "deleted": "A Person Annex is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Person Annex {{ id }}?"
+      },
+      "detail": {
+        "title": "Person Annex"
+      },
+      "id": "ID",
+      "nid": "Nid",
+      "legacyNid": "Legacy Nid",
+      "passportNumber": "Passport Number",
+      "birthCertificateNumber": "Birth Certificate Number",
+      "drivingLicenceNumber": "Driving Licence Number",
+      "tinCertificateNumber": "Tin Certificate Number",
+      "facebookId": "Facebook Id",
+      "twitterId": "Twitter Id",
+      "linkedinId": "Linkedin Id",
+      "githubId": "Github Id",
+      "tiktokId": "Tiktok Id",
+      "instragramId": "Instragram Id",
+      "whatsappNumber": "Whatsapp Number",
+      "pinterestId": "Pinterest Id",
+      "telegramId": "Telegram Id",
+      "rokomariId": "Rokomari Id",
+      "rokomariJoinDate": "Rokomari Join Date",
+      "techshopId": "Techshop Id",
+      "techshopJoinDate": "Techshop Join Date",
+      "udvashId": "Udvash Id",
+      "udvashJoinDate": "Udvash Join Date",
+      "prohoriId": "Prohori Id",
+      "prohoriJoinDate": "Prohori Join Date",
+      "person": "Person"
+    }
+  }
+}

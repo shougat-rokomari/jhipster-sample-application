@@ -1,0 +1,122 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="personAnnex">
+      <h2 data-cy="personAnnexDetailsHeading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.detail.title">Person Annex</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ personAnnex.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.nid">Nid</span></dt>
+        <dd>
+          <span>{{ personAnnex.nid }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.legacyNid">Legacy Nid</span></dt>
+        <dd>
+          <span>{{ personAnnex.legacyNid }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.passportNumber">Passport Number</span></dt>
+        <dd>
+          <span>{{ personAnnex.passportNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.birthCertificateNumber">Birth Certificate Number</span></dt>
+        <dd>
+          <span>{{ personAnnex.birthCertificateNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.drivingLicenceNumber">Driving Licence Number</span></dt>
+        <dd>
+          <span>{{ personAnnex.drivingLicenceNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.tinCertificateNumber">Tin Certificate Number</span></dt>
+        <dd>
+          <span>{{ personAnnex.tinCertificateNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.facebookId">Facebook Id</span></dt>
+        <dd>
+          <span>{{ personAnnex.facebookId }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.twitterId">Twitter Id</span></dt>
+        <dd>
+          <span>{{ personAnnex.twitterId }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.linkedinId">Linkedin Id</span></dt>
+        <dd>
+          <span>{{ personAnnex.linkedinId }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.githubId">Github Id</span></dt>
+        <dd>
+          <span>{{ personAnnex.githubId }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.tiktokId">Tiktok Id</span></dt>
+        <dd>
+          <span>{{ personAnnex.tiktokId }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.instragramId">Instragram Id</span></dt>
+        <dd>
+          <span>{{ personAnnex.instragramId }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.whatsappNumber">Whatsapp Number</span></dt>
+        <dd>
+          <span>{{ personAnnex.whatsappNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.pinterestId">Pinterest Id</span></dt>
+        <dd>
+          <span>{{ personAnnex.pinterestId }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.telegramId">Telegram Id</span></dt>
+        <dd>
+          <span>{{ personAnnex.telegramId }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.rokomariId">Rokomari Id</span></dt>
+        <dd>
+          <span>{{ personAnnex.rokomariId }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.rokomariJoinDate">Rokomari Join Date</span></dt>
+        <dd>
+          <span>{{ personAnnex.rokomariJoinDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.techshopId">Techshop Id</span></dt>
+        <dd>
+          <span>{{ personAnnex.techshopId }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.techshopJoinDate">Techshop Join Date</span></dt>
+        <dd>
+          <span>{{ personAnnex.techshopJoinDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.udvashId">Udvash Id</span></dt>
+        <dd>
+          <span>{{ personAnnex.udvashId }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.udvashJoinDate">Udvash Join Date</span></dt>
+        <dd>
+          <span>{{ personAnnex.udvashJoinDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.prohoriId">Prohori Id</span></dt>
+        <dd>
+          <span>{{ personAnnex.prohoriId }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.personAnnex.prohoriJoinDate">Prohori Join Date</span></dt>
+        <dd>
+          <span>{{ personAnnex.prohoriJoinDate | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/person-annex', personAnnex.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
