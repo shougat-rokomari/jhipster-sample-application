@@ -1,0 +1,53 @@
+entity Person {
+  name String
+  dateOfBirth Instant
+  dateOfDeath Instant
+  gender Gender
+}
+
+enum Gender {
+    MALE, FEMALE, OTHER
+}
+
+entity PersonAnnex {
+  nid Long
+  legacyNid Long
+  passportNumber String
+  birthCertificateNumber String
+  drivingLicenceNumber String
+  tinCertificateNumber String
+  facebookId String
+  twitterId String
+  linkedinId String
+  githubId String
+  tiktokId String
+  instragramId String
+  whatsappNumber String
+  pinterestId String
+  telegramId String
+  rokomariId Long
+  rokomariJoinDate Instant
+  techshopId Long
+  techshopJoinDate Instant
+  udvashId String
+  udvashJoinDate Instant
+  prohoriId String
+  prohoriJoinDate Instant
+}
+
+entity ContactInfo {
+  contactType ContactType
+  contactValue String
+}
+
+enum ContactType {
+    EMAIL, PHONE
+}
+
+relationship OneToOne {
+	Person {personAnnex} to PersonAnnex {person}
+}
+
+relationship OneToMany {
+    Person {contactInfos} to ContactInfo {person}
+}
